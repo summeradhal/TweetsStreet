@@ -6,7 +6,7 @@ tweetApp.directive('customMenu', function(){
 	return {
 		// return two properties
 		restrict: 'E', //E= Element, A=attribute, C=Class,M=comment
-		template: "Views/menu.html"
+		templateUrl: 'Views/menu.html'
 	}
 }); //end of cumstomMenu directive
 
