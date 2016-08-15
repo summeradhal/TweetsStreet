@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="tweetApp">
+<head >
+
+	<title>Political Tweets</title>
+
+<!-- Angular link -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+<!-- animate link -->
+<script src="https://code.angularjs.org/1.5.8/angular-animate.min.js"></script>
+
+<!-- route link -->
+<script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>
+
+<!-- cookies link -->
+<script src="https://code.angularjs.org/1.5.8/angular-cookies.min.js"></script>
+
+<!-- <script type="text/javascript" src="JS/tweetModule.js"></script> -->
+
+<script type="text/javascript" src="JS/customDirectiveTest.js"></script>
+
+<script type="text/javascript" src="JS/tweetController.js"></script>
+
+</head> <!-- end of head -->
+
+<!-- Beginning of body -->
+<body ng-controller="tweetController">
+
+
+
+<!-- camel case when you define it, snake case when you use it -->
+<custom-menu></custom-menu>
+<div ng-view></div>
+
+
+</body> <!-- end of body -->
+
+</html>
+
+
+
+
+
