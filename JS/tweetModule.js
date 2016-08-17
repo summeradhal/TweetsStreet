@@ -1,5 +1,5 @@
 // Initialize the app
-var tweetApp = angular.module('tweetApp', ['ngRoute']);
+var tweetApp = angular.module('tweetApp', ['ngRoute','ngMaterial']);
 
 tweetApp.config(function($routeProvider){
 	//At / load up home.html, with home controller	
