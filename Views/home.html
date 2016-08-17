@@ -1,1 +1,4 @@
-<custom-menu></custom-menu>
+<div class="" ng-repeat="tweet in tweets">
+		<img ng-src="{{tweet.user.profile_banner_url}}">
+		<li>CONTENT: {{tweet.text}}</li>
+	</div>

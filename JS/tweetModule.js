@@ -1,28 +1,57 @@
-
-//Initialize app
-var tweetApp=angular.module('tweetApp',['ngRoute']);
-
-tweetApp.directive('customMenu', function(){
-	return {
-		// return two properties
-		restrict: 'E', //E= Element, A=attribute, C=Class,M=comment
-		templateUrl: 'Views/menu.html'
-	}
-}); //end of cumstomMenu directive
+// Initialize the app
+var tweetApp = angular.module('tweetApp', ['ngRoute']);
 
 tweetApp.config(function($routeProvider){
-	$routeProvider.when('/',{ //load up home html with home controller
-		templateUrl:'Views/home.html', 
-		controller:'homeController'
+	//At / load up home.html, with home controller	
+	$routeProvider.when('/',{
+		templateUrl: 'views/home.html',
+		controller: 'tweetController'
+	});
+	//At /trump, load up the same template, but new controller
+	$routeProvider.when('/:searchTerm',{
+		templateUrl: 'views/home.html',
+		controller: 'tweetController'
+	});
+	$routeProvider.when('/:searchTerm*',{
+		templateUrl: 'views/home.html',
+		controller: 'tweetController'
 	});
 
-		$routeProvider.when('/trump',{ //trump load up same template but new controller
-			templateUrl:'home.html',
-			controller:'trumpController'
-		});
-		$routeProvider.when('/hillary',{ // /bernie load up same template but new controller
-			templateUrl:'home.html',
-			controller:'hillaryController'
-		});
-		$routeProvider.otherwise('/'); //default
-}); //end 
+	//At /hillary, load up the same template, but new controller
+	$routeProvider.when('/hillary',{ 
+		templateUrl: 'views/home.html',
+		controller: 'hillaryController'
+	});
+	$routeProvider.when('/:other',{
+		templateUrl: 'views/home.html',
+		controller: 'trumpController'
+
+	})
+	$routeProvider.otherwise('/'); //Default
+
+});
+
+
+
+tweetApp.factory('myFactory', function(){
+    var factory = {};
+
+    factory.getVar = function(){
+        return this.variable;
+    }
+
+    factory.setVar = function(data){
+        this.variable = data;
+    }
+    
+    return factory;
+});
+
+tweetApp.controller('MainController', function($scope, myFactory){
+    myFactory.setVar("this is a variable");
+});
+
+tweetApp.controller('AnotherController', function($scope, myFactory){
+    console.log(myFactory.getVar());
+    // "this is a variable"
+})
