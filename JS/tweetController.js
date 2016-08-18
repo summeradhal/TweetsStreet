@@ -23,5 +23,10 @@ tweetApp.controller('tweetController', function($scope, $http, $location, $route
 	});	
 	$scope.test = "I am set";
 
+
+
+   
+    
+
 });
  

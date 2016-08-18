@@ -28,6 +28,11 @@ $scope.$watch(function(){
 ); //end of watch
 
 
+	$scope.isActive = function(view){
+		console.log($location.path);
+		return (view === $location.path());
+	}
+
 
  $scope.showPrompt = function(ev) {
     // Appending dialog to document.body to cover sidenav in docs app
